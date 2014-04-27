@@ -30,3 +30,11 @@ dataCols<-sort(dataCols)
 
 data<-mergedX[,dataCols]
 names(data)<-features$V2[dataCols]
+
+data$Activity[data$Activity==1]<-""
+data$Activity[data$Activity==2]<-"Walking"
+data$Activity[data$Activity==3]<-"Walking_Upstairs"
+data$Activity[data$Activity==4]<-"Walking_Downstairs"
+data$Activity[data$Activity==5]<-"Sitting"
+data$Activity[data$Activity==6]<-"Standing"
+data$Activity[data$Activity==""]<-"Laying"
