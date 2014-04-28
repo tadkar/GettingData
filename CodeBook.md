@@ -18,7 +18,7 @@ Output format
 
 The script exports tidydatasummary.txt. The first column is the id of the subject providing the data, the second is the activity being performed. The remaining columns contain the average of each measurement for the combination of subject ID and activity.
 
-</pre
+<pre>
   Subject           Activity tBodyAcc-mean()-X tBodyAcc-mean()-Y
 1       1             LAYING         0.2215982      -0.040513953
 2       1            SITTING         0.2612376      -0.001308288
@@ -26,7 +26,7 @@ The script exports tidydatasummary.txt. The first column is the id of the subjec
 4       1            WALKING         0.2773308      -0.017383819
 5       1 WALKING_DOWNSTAIRS         0.2891883      -0.009918505
 6       1   WALKING_UPSTAIRS         0.2554617      -0.023953149
-/pre>
+</pre>
 
 For example, the 0.2215982 in the first line of the output is the mean of tBodyAcc-mean()-X when subject 1 is laying down.
 
