@@ -38,3 +38,6 @@ data$Activity[data$Activity==4]<-"Walking_Downstairs"
 data$Activity[data$Activity==5]<-"Sitting"
 data$Activity[data$Activity==6]<-"Standing"
 data$Activity[data$Activity==""]<-"Laying"
+
+datamelt<-melt(data,id=c("Activity","Subject"),measure.vars=names(data)[c(-80,-81)])
+out<-dcast(datamelt,Subject+Activity~variable,mean)
