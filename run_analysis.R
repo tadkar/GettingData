@@ -1,6 +1,8 @@
+##Load required libraries
 library(plyr)
 library(reshape2)
 
+##Load each train and test data separately
 X_test <- read.table("~/X_test.txt", quote="\"",row.names=NULL)
 X_train <- read.table("~/X_train.txt", quote="\"",row.names=NULL)
 y_test <- read.table("~/y_test.txt", quote="\"",row.names=NULL)
@@ -42,3 +44,6 @@ data$Activity[data$Activity==""]<-"Laying"
 
 datamelt<-melt(data,id=c("Activity","Subject"),measure.vars=names(data)[c(-80,-81)])
 out<-dcast(datamelt,Subject+Activity~variable,mean)
+
+write.table(data, file="./tidydata.txt", sep="\t", row.names=FALSE)
+write.table(out, file="./tidysummary.txt", sep="\t", row.names=FALSE)
