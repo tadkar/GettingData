@@ -43,13 +43,12 @@ data<-mergedX[,c(dataCols,562,563)]
 names(data)<-c(features$V2[dataCols],"Subject","Activity")
 
 ##Recode Activity data
-data$Activity[data$Activity==1]<-""
-data$Activity[data$Activity==2]<-"Walking"
-data$Activity[data$Activity==3]<-"Walking_Upstairs"
-data$Activity[data$Activity==4]<-"Walking_Downstairs"
-data$Activity[data$Activity==5]<-"Sitting"
-data$Activity[data$Activity==6]<-"Standing"
-data$Activity[data$Activity==""]<-"Laying"
+data$Activity[data$Activity==1]<-"Walking"
+data$Activity[data$Activity==2]<-"Walking_Upstairs"
+data$Activity[data$Activity==3]<-"Walking_Downstairs"
+data$Activity[data$Activity==4]<-"Sitting"
+data$Activity[data$Activity==5]<-"Standing"
+data$Activity[data$Activity==6]<-"Laying"
 
 ##Reshape the data and summarise using the mean
 datamelt<-melt(data,id=c("Activity","Subject"),measure.vars=names(data)[c(-80,-81)])
