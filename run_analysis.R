@@ -42,6 +42,7 @@ dataCols<-sort(dataCols)
 data<-mergedX[,c(dataCols,562,563)]
 names(data)<-c(features$V2[dataCols],"Subject","Activity")
 
+##Recode Activity data
 data$Activity[data$Activity==1]<-""
 data$Activity[data$Activity==2]<-"Walking"
 data$Activity[data$Activity==3]<-"Walking_Upstairs"
@@ -50,8 +51,10 @@ data$Activity[data$Activity==5]<-"Sitting"
 data$Activity[data$Activity==6]<-"Standing"
 data$Activity[data$Activity==""]<-"Laying"
 
+##Reshape the data and summarise using the mean
 datamelt<-melt(data,id=c("Activity","Subject"),measure.vars=names(data)[c(-80,-81)])
 out<-dcast(datamelt,Subject+Activity~variable,mean)
 
+##Output work to files
 write.table(data, file="./tidydata.txt", sep="\t", row.names=FALSE)
 write.table(out, file="./tidysummary.txt", sep="\t", row.names=FALSE)
