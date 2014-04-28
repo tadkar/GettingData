@@ -15,22 +15,30 @@ names(y_train)<-"Activity"
 names(subject_test)<-"Subject"
 names(subject_train)<-"Subject"
 
-
+##Merge the data sets, by adding the test data rows below the train data rows
 mergedX=rbind(X_train,X_test)
 mergedY=rbind(y_train,y_test)
 mergedSubject=rbind(subject_train,subject_test)
 
+##Coerce the subject and Activity data to be numeric and adjoin them to mergedX
+##This seems to be the only way to avoid weird errors later on
+##maybe try cbind()?
 mergedX$Subject<-as.numeric(as.matrix(mergedSubject))
 mergedX$Activity<-as.numeric(as.matrix(mergedY))
 
+##Programmatically extract list of columns to pick from mergedX
+##First load features
 features<-read.table("~/GettingAndCleaningData/features.txt", quote="\"")
 features$V2<-as.character(features$V2)
+##Then look for any variable name containing mean or std
 meanCols<-grep("*mean*",features$V2)
 stdCols<-grep("*std*",features$V2)
 
+##concatenate anything that matches 
 dataCols<-c(meanCols,stdCols)
 dataCols<-sort(dataCols)
 
+##Columns 562,563 are the last added subject and activity columns
 data<-mergedX[,c(dataCols,562,563)]
 names(data)<-c(features$V2[dataCols],"Subject","Activity")
 
