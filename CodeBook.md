@@ -24,6 +24,16 @@ The activity values contained in the y_train and y_test data sets were recoded t
 6 LAYING
 </pre>
 
+Variables
+---------
+* meanCols - indices of the columns that contain mean in the name
+* stdCols - indices of the columns that contain std in the name
+* dataCols - concatenation of the above two, used to extract the required features
+* mergedX, mergedY, mergedSubject - merged datasets using rbind. The dats contains no missing or overlapping values
+* data - contains the tidy output data
+* out - contains data for the mean of each measured variable broken down by subject and activity
+
+
 Output format
 -------------
 
