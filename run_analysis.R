@@ -47,7 +47,6 @@ activity_labels <- read.table("~/activity_labels.txt", quote="\"",row.names=NULL
 
 ##Recode Activity data using the lookup table specified in the activity labels file
 data$Activity<-sapply(data$Activity, function(x) activity_labels$V2[x])
-mergedX$Activity<-sapply(mergedX$Activity, function(x) activity_labels$V2[x])
 
 ##Reshape the data and summarise using the mean
 datamelt<-melt(data,id=c("Activity","Subject"),measure.vars=names(data)[c(-80,-81)])
