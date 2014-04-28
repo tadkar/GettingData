@@ -42,13 +42,12 @@ dataCols<-sort(dataCols)
 data<-mergedX[,c(dataCols,562,563)]
 names(data)<-c(features$V2[dataCols],"Subject","Activity")
 
-##Recode Activity data
-data$Activity[data$Activity==1]<-"Walking"
-data$Activity[data$Activity==2]<-"Walking_Upstairs"
-data$Activity[data$Activity==3]<-"Walking_Downstairs"
-data$Activity[data$Activity==4]<-"Sitting"
-data$Activity[data$Activity==5]<-"Standing"
-data$Activity[data$Activity==6]<-"Laying"
+##Load Activity labels
+activity_labels <- read.table("~/activity_labels.txt", quote="\"",row.names=NULL)
+
+##Recode Activity data using the lookup table specified in the activity labels file
+data$Activity<-sapply(data$Activity, function(x) activity_labels$V2[x])
+
 
 ##Reshape the data and summarise using the mean
 datamelt<-melt(data,id=c("Activity","Subject"),measure.vars=names(data)[c(-80,-81)])
