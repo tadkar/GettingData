@@ -3,6 +3,9 @@ GettingData
 
 Getting and Sharing Data Course
 
+This script assumes that all the data is unzipped and stored in the current working directory
+This also assumes that the requirement is for all variables with mean or std in their name
+
 The file loads all the data sets into the respectively named variables
 
 The train and test data for X, Y and subject are then joined using rbind
