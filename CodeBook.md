@@ -27,7 +27,21 @@ The activity values contained in the y_train and y_test data sets were recoded t
 Output format
 -------------
 
-The script exports tidydatasummary.txt. The first column is the id of the subject providing the data, the second is the activity being performed. The remaining columns contain the average of each measurement for the combination of subject ID and activity.
+The script exports tidydata.txt and tidydatasummary.txt. 
+
+tidydata.txt contains a list of measurements of the 79 variables with mean or std in their name followed by a final 2 columns of subject ID and activity. For example the first 6 lines of the last 4 columns in the file are.
+
+<pre>
+fBodyBodyGyroJerkMag-std() fBodyBodyGyroJerkMag-meanFreq() Subject Activity
+1                 -0.9906975                     -0.07432303       1 STANDING
+2                 -0.9963995                      0.15807454       1 STANDING
+3                 -0.9951274                      0.41450281       1 STANDING
+4                 -0.9952369                      0.40457253       1 STANDING
+5                 -0.9954648                      0.08775301       1 STANDING
+6                 -0.9952387                      0.01995331       1 STANDING
+</pre>
+
+The first column is the id of the subject providing the data, the second is the activity being performed. The remaining columns contain the average of each measurement for the combination of subject ID and activity.
 
 <pre>
    Subject           Activity tBodyAcc-mean()-X tBodyAcc-mean()-Y tBodyAcc-mean()-Z
