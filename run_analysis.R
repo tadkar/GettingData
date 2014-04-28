@@ -28,7 +28,7 @@ mergedX$Activity<-as.numeric(as.matrix(mergedY))
 
 ##Programmatically extract list of columns to pick from mergedX
 ##First load features
-features<-read.table("~/GettingAndCleaningData/features.txt", quote="\"")
+features<-read.table("~/features.txt", quote="\"")
 features$V2<-as.character(features$V2)
 ##Then look for any variable name containing mean or std
 meanCols<-grep("*mean*",features$V2)
